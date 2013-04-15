@@ -1,0 +1,16 @@
+{
+  "name": "snapnode",
+  "version": "0.0.1-beta",
+  "author": "Lucas Dohring <lucas@xn--80atc0ah.com>",
+  "main": "api.js",
+  "dependencies" : {
+    "node-uuid": "*"
+  },
+  "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/nykac/node-snapchat"
+    },
+  "keywords": ["snapchat"],
+  "license": "GPL3+"
+}
