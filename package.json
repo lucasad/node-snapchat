@@ -1,0 +1,25 @@
+{
+  "name": "snapchat",
+  "version": "0.0.1",
+  "description": "A snapchat client for node.js",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nykac/node-snapchat"
+  },
+  "keywords": [
+    "snapchat",
+    "api"
+  ],
+  "author": {
+    "name": "Lucas A. Dohring",
+    "email": "lucas@dohring.tk"
+  },
+  "license": "EUPL-1.1",
+  "dependencies": {
+    "uuid-v4": "*",
+    "multipart-form-stream": "*",
+    "stream-sink": "*"
+  }
+}
