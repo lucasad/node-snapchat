@@ -24,7 +24,7 @@ client.on('sync', function(data) {
     // Loop through the latest snaps
     data.snaps.forEach(function(snap) {
         // Make sure the snap item is unopened and sent to you (not sent by you)
-        if (typeof snap.sn !== 'undefiend' && typeof snap.t !== 'undefined' && snap.st == 1) {
+        if (typeof snap.sn !== 'undefined' && typeof snap.t !== 'undefined' && snap.st == 1) {
             console.log('Saving snap from ' + snap.sn + '...');
 
             // Save the image to ./images/{SENDER USERNAME}_{SNAP ID}.jpg
