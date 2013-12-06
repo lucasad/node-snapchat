@@ -1,8 +1,8 @@
 {
   "name": "snapchat",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "A snapchat client for node.js",
-  "main": "index.js",
+  "main": "snapchat.js",
   "scripts": {},
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "dependencies": {
     "uuid-v4": "*",
     "multipart-form-stream": "*",
-    "stream-sink": "*"
+    "stream-sink": "*",
+    "q": "*"
   }
 }

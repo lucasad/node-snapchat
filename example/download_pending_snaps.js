@@ -1,4 +1,4 @@
-var snapchat = require('../index'),
+var snapchat = require('../snapchat'),
     client = new snapchat.Client(),
     fs = require('fs');
 
@@ -7,14 +7,7 @@ if(!fs.existsSync('./images')) {
     fs.mkdirSync('./images');
 }
 
-client.login('USERNAME', 'PASSWORD');
-
-// Log any errors
-client.on('error', function(data) {
-    console.log(data);
-});
-
-client.on('sync', function(data) {
+client.login('USERNAME', 'PASSWORD').then(function(data) {
     // Handle any problems, such as wrong password
     if (typeof data.snaps === 'undefined') {
         console.log(data);
@@ -29,7 +22,10 @@ client.on('sync', function(data) {
 
             // Save the image to ./images/{SENDER USERNAME}_{SNAP ID}.jpg
             var stream = fs.createWriteStream('./images/' + snap.sn + '_' + snap.id + '.jpg', { flags: 'w', encoding: null, mode: 0666 });
-            client.getBlob(snap.id, stream);
+            client.getBlob(snap.id).then(function(blob) {
+		blob.pipe(stream);
+		blob.resume();
+	    });
         }
     });
 });
