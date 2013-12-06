@@ -37,7 +37,7 @@ var Client = module.exports = function() {
 /**
  * @param  {String} username
  * @param  {String} password
- * @return {Promise} the auth_token
+ * @return {Promise} sync data
  */
 
 Client.prototype.login = function(username, password, cb) {
@@ -124,7 +124,7 @@ Client.prototype.upload = function(stream, isVideo, cb) {
 /** Send the snap to people
  * @param  {String}       mediaId the snap to send.
  * @param  {Array|String} friends An array, or comma-seperated list of friends to send the snap to.
- * @param  {Number}       time    How long (in seconds) a snap should be visible.
+ * @param  {Number}       time    How long (in seconds) a snap should be visible. This should only be set if the snap is a picture.
  */
 Client.prototype.send = function(mediaId,friends,timeOrCb,cb) {
     var time = 3;
