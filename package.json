@@ -22,5 +22,8 @@
     "multipart-form-stream": "*",
     "stream-sink": "*",
     "q": "*"
+  },
+  "engines": {
+    "node": "0.8.x"
   }
 }
