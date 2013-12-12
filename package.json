@@ -1,6 +1,6 @@
 {
   "name": "snapchat",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "A snapchat client for node.js",
   "main": "snapchat.js",
   "scripts": {},
@@ -22,8 +22,5 @@
     "multipart-form-stream": "*",
     "stream-sink": "*",
     "q": "*"
-  },
-  "engines": {
-    "node": "0.8.x"
   }
 }

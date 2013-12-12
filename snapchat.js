@@ -217,7 +217,7 @@ e.upload = function upload(username, auth_token, stream, isVideo, cb) {
     form.addField('type', isVideo);
 
     return Q.promise(function(resolve,reject) {
-        form.pipe(https.request({
+        var req = https.request({
             host: hostname,
             method: 'POST',
             path: '/ph/upload',
@@ -231,7 +231,12 @@ e.upload = function upload(username, auth_token, stream, isVideo, cb) {
                 if (res.statusCode != 200) return reject(data);
                 resolve(mediaId);
             }));
-        }));
+        });
+	form.on('data', function(data) {
+	    req.write(data);
+	}).on('end', function(end) {
+	    req.end(end);
+	})
     }).nodeify(cb);;
 }
 
