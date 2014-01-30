@@ -38,7 +38,7 @@ var e = module.exports;
 /** @const */ var secret = e.secret = "iEk21fuwZApXlz93750dmW22pw389dPwOk";
 /** @const */ var static_token = e.static_token = "m198sOkJEn37DjqZ32lpRu76xmw288xSQ9";
 /** @const */ var hostname = e.hostname = "feelinsonice.appspot.com";
-/** @const */ var user_agent = e.user_agent = "Snaphax 4.0.1 (iPad; iPhone OS 6.0; en_US)";
+/** @const */ var user_agent = e.user_agent = "Snapchat/4.1.07 (Nexus 4; Android 18; gzip)";
 
 var sink = require("stream-sink");
 
