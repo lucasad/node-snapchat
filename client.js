@@ -89,7 +89,7 @@ Client.prototype.sync = function(jsonOrCb, cb) {
     var json = {};
     if(typeof jsonOrCb == 'object')
         json = jsonOrCb;
-    else(typeof jsonOrCb == 'function')
+    else if(typeof jsonOrCb == 'function')
         cb = jsonOrCb;
     return sc.sync(this.username, this.auth_token, json).then(function(data) {
         self.auth_token = data.auth_token;
