@@ -18,9 +18,9 @@
   },
   "license": "EUPL-1.1",
   "dependencies": {
-    "uuid-v4": "*",
-    "multipart-form-stream": "*",
-    "stream-sink": "*",
-    "q": "*"
+    "uuid-v4": "^0.1.0",
+    "multipart-form-stream": "0.0.0",
+    "stream-sink": "^1.2.0",
+    "q": "^2.0.1"
   }
 }
