@@ -93,7 +93,7 @@ e.postCall = function postCall(endpoint, post_data, param1, param2, raw, cb) {
             'Content-Length': data.length
         }
     };
-    return Q.promise(function(resolve, reject) {
+    return Q.Promise(function(resolve, reject) {
         var req = https.request(opts, function(res) {
             if(raw) {
                 res.pause();
@@ -166,7 +166,7 @@ e.getBlob = function(username, auth_token, id, cb) {
     }, auth_token, ts, true)
 	.then(function(stream) {
             if(stream.statusCode != 200)
-		return Q.promise(function(resolve, reject) {
+		return Q.Promise(function(resolve, reject) {
 		    stream.setEncoding('ascii');
 		    stream.pipe(sink().on('data', function(resp) {
 			reject(resp);
@@ -216,7 +216,7 @@ e.upload = function upload(username, auth_token, stream, isVideo, cb) {
     form.addField('media_id', mediaId);
     form.addField('type', isVideo);
 
-    return Q.promise(function(resolve,reject) {
+    return Q.Promise(function(resolve,reject) {
         var req = https.request({
             host: hostname,
             method: 'POST',
