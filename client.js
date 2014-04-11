@@ -31,6 +31,7 @@ var sc = require('./snapchat');
  */
 
 var Client = module.exports = function() {
+    console.log('creating snap client');
     if(!(this instanceof Client)) return new Client();
 }
 
@@ -41,8 +42,10 @@ var Client = module.exports = function() {
  */
 
 Client.prototype.login = function(username, password, cb) {
+	console.log('snap logging in');
     var self = this;
     return sc.login(username, password).then(function(data) {
+		console.log('we have returned');
         self.username = data.username;
         self.auth_token = data.auth_token;
         self.lastSync = {
