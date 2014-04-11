@@ -1,6 +1,6 @@
 {
   "name": "snapchat-jd",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A snapchat client for node.js",
   "main": "snapchat.js",
   "scripts": {},
