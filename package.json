@@ -1,20 +1,20 @@
 {
-  "name": "snapchat",
+  "name": "snapchat-jd",
   "version": "1.0.4",
   "description": "A snapchat client for node.js",
   "main": "snapchat.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/nykac/node-snapchat"
+    "url": "https://github.com/jladuval/node-snapchat"
   },
   "keywords": [
     "snapchat",
     "api"
   ],
   "author": {
-    "name": "Lucas A. Dohring",
-    "email": "lucas@dohring.tk"
+    "name": "Jacob Duval",
+    "email": "jladuval@gmail.com"
   },
   "license": "EUPL-1.1",
   "dependencies": {

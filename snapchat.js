@@ -102,8 +102,10 @@ e.postCall = function postCall(endpoint, post_data, param1, param2, raw, cb) {
             res.pipe(sink().on('data', function(resp) {
                 if(res.statusCode==200)
                     resolve(resp)
-                else
-                    reject(resp);
+                else{
+					console.log(resp);
+					reject(resp);
+				}                    
             }));
         });
         req.end(data);
