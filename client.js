@@ -127,9 +127,11 @@ Client.prototype.upload = function(stream, isVideo, cb) {
  * @param  {Number}       time    How long (in seconds) a snap should be visible. This should only be set if the snap is a picture.
  */
 Client.prototype.send = function(mediaId,friends,timeOrCb,cb) {
-    var time = 3;
+    var time;
     if(typeof timeOrCb === 'function') {
         cb = timeOrCb;
+    } else {
+    	time = timeOrCb;
     }
     return sc.send(this.username,this.auth_token,mediaId,friends,time).nodeify(cb);
 };
