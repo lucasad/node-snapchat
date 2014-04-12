@@ -93,10 +93,8 @@ e.postCall = function postCall(endpoint, post_data, param1, param2, raw, cb) {
             'Content-Length': data.length
         }
     };
-	console.log('about to create promise');
     return Q.Promise(function(resolve, reject) {
         var req = https.request(opts, function(res) {
-			console.log(resp);
             if(raw) {
                 res.pause();
                 return resolve(res);
@@ -120,7 +118,6 @@ e.postCall = function postCall(endpoint, post_data, param1, param2, raw, cb) {
  * @return {Promise} sync data
  */
 e.login = function login(username, password, cb) {
-    console.log('the snapchat login function');
     var ts = '' + Date.now();
     return e.postCall('/ph/login', {
         username: username,
@@ -131,7 +128,11 @@ e.login = function login(username, password, cb) {
             var resp = JSON.parse(data);
             if(resp.auth_token) return(resp);
             else throw(resp)
-	}).nodeify(cb);
+	})
+	.catch(function(err){
+		throw(err);
+	})
+	.nodeify(cb);
 };
 
 /**
