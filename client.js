@@ -32,7 +32,7 @@ var sc = require('./snapchat');
 
 var Client = module.exports = function() {
     if(!(this instanceof Client)) return new Client();
-}
+};
 
 /**
  * @param  {String} username
@@ -99,7 +99,7 @@ Client.prototype.sync = function(jsonOrCb, cb) {
         };
         return data;
     }).nodeify(cb);
-}
+};
 
 /**
  * Fetches a blob (image or video)
@@ -119,7 +119,7 @@ Client.prototype.getBlob = function(id, cb) {
  */
 Client.prototype.upload = function(stream, isVideo, cb) {
     return sc.upload(this.username, this.auth_token, stream, isVideo).nodeify(cb);
-}
+};
 
 /** Send the snap to people
  * @param  {String}       mediaId the snap to send.
@@ -156,7 +156,7 @@ Client.prototype.addFriend = function(friend, cb) {
 Client.prototype.rename = function(friend, newName, cb) {
     if (typeof this.auth_token === "undefined") return;
     var self = this;
-    return sc.rename(this.username, this.auth_token, friend, newName).nodeify(cb)
+    return sc.rename(this.username, this.auth_token, friend, newName).nodeify(cb);
 };
 
 /**
@@ -184,7 +184,7 @@ Client.prototype.clear = function(cb) {
  */
 Client.prototype.privacy = function(only_friends, cb) {
     return sc.privacy(this.username, this.auth_token, only_friends).nodeify(cb);
-}
+};
 
 /**
  * Update your email
