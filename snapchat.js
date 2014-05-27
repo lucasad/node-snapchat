@@ -101,7 +101,7 @@ e.postCall = function postCall(endpoint, post_data, param1, param2, raw, cb) {
             }
             res.pipe(sink().on('data', function(resp) {
                 if(res.statusCode==200)
-                    resolve(resp)
+                    resolve(resp);
                 else
                     reject(resp);
             }));
@@ -126,14 +126,14 @@ e.login = function login(username, password, cb) {
 	.then(function(data) {
             var resp = JSON.parse(data);
             if(resp.auth_token) return(resp);
-            else throw(resp)
+            else throw(resp);
 	}).nodeify(cb);
 };
 
 /**
  * Get current state and optionally update it
  * @param  {String}  username
- * @param  {String}  auth_token 
+ * @param  {String}  auth_token
  * @param  {Object}  json        An object countaining fields to update.
  * @return {Promise} The current state
  */
@@ -181,7 +181,7 @@ e.getBlob = function(username, auth_token, id, cb) {
               if(data !== undefined)
               decrypt.update(data);
               }).on('end', function() {
-              var final = decrypt.final(); 
+              var final = decrypt.final();
               });*/
             var decrypt = spawn('openssl', ['enc', '-d', '-K', '4d3032636e5135314a69393776775434', '-aes-128-ecb']);
             stream.pipe(decrypt.stdin);
@@ -236,9 +236,9 @@ e.upload = function upload(username, auth_token, stream, isVideo, cb) {
 	    req.write(data);
 	}).on('end', function(end) {
 	    req.end(end);
-	})
+	});
     }).nodeify(cb);;
-}
+};
 
 /**
  * Send a blob to a friend.
@@ -259,7 +259,7 @@ e.send = function send(username, auth_token, mediaId, friends, time, cb) {
     };
     if(typeof time != 'undefined') postData.time = time;
     return e.postCall('/ph/send', postData, auth_token,ts).nodeify(cb);
-}
+};
 
 /**
  * Add a friend
@@ -370,7 +370,7 @@ e.clear = function clear(username, auth_token, cb) {
         timestamp: ts,
         username: username
     }, auth_token, ts).nodeify(cb);
-}
+};
 
 /**
  * Update your email
