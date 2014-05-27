@@ -237,7 +237,7 @@ e.upload = function upload(username, auth_token, stream, isVideo, cb) {
 	}).on('end', function(end) {
 	    req.end(end);
 	})
-    }).nodeify(cb);;
+    }).nodeify(cb);
 }
 
 /**
