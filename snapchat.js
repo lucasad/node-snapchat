@@ -407,4 +407,17 @@ e.privacy = function privacy(username, auth_token, only_friends, cb) {
     }, auth_token, ts).nodeify(cb);
 };
 
+/**
+ * Get updates from the SnapChat server
+ * @param  {String} auth_token
+ * @return {Promise}
+ */
+e.getUpdates = function(username, auth_token, cb) {
+    var ts = Date.now().toString();
+    return e.postCall('/bq/all_updates', {
+        timestamp: ts,
+        username: username
+    }, auth_token, ts).nodeify(cb);
+};
+
 e.Client = require('./client');

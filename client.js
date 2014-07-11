@@ -194,3 +194,23 @@ Client.prototype.privacy = function(only_friends, cb) {
 Client.prototype.updateEmail = function(email, cb) {
     return sc.updateEmail(this.username, this.auth_token, email).nodeify(cb);
 };
+
+/**
+ * Get a list of users who you have added as a friend
+ * @return {Promise}
+ */
+ Client.prototype.getFriends = function(cb) {
+     return sc.getUpdates(this.username, this.auth_token).then(JSON.parse).then(function(data) {
+         return data.updates_response.friends;
+     }).nodeify(cb);
+ };
+
+/**
+ * Get a list of users who have added you as a friend
+ * @return {Promise}
+ */
+Client.prototype.getFriendRequests = function(cb) {
+    return sc.getUpdates(this.username, this.auth_token).then(JSON.parse).then(function(data) {
+        return data.updates_response.added_friends;
+    }).nodeify(cb);
+};
