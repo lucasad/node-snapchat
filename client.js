@@ -224,3 +224,13 @@ Client.prototype.getFriendStories = function(cb) {
         return data.stories_response.friend_stories;
     }).nodeify(cb);
 }
+
+/**
+ * Get a list of my stories
+ * @return {Promise}
+ */
+Client.prototype.getMyStories = function(cb) {
+    return sc.getUpdates(this.username, this.auth_token).then(JSON.parse).then(function(data) {
+        return data.stories_response.my_stories;
+    }).nodeify(cb);
+}
