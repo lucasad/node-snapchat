@@ -38,7 +38,7 @@ var e = module.exports;
 /** @const */ var secret = e.secret = "iEk21fuwZApXlz93750dmW22pw389dPwOk";
 /** @const */ var static_token = e.static_token = "m198sOkJEn37DjqZ32lpRu76xmw288xSQ9";
 /** @const */ var hostname = e.hostname = "feelinsonice.appspot.com";
-/** @const */ var user_agent = e.user_agent = "Snapchat/4.1.07 (Nexus 4; Android 18; gzip)";
+/** @const */ var user_agent = e.user_agent = "Snapchat/8.1.1 (Nexus 5; Android 21; gzip)";
 
 var sink = require("stream-sink");
 
@@ -89,6 +89,7 @@ e.postCall = function postCall(endpoint, post_data, param1, param2, raw, cb) {
         path: endpoint,
         headers: {
             'User-Agent': e.user_agent,
+            'Accept-Language': 'en',
             'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Length': data.length
         }
