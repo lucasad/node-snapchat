@@ -33,7 +33,7 @@ qs = require('querystring'),
 Q =  require('q');
 
 var e = module.exports;
-/** @const */ var blob_enc_key = e.blob_enc_key = Buffer('4d3032636e5135314a69393776775434', 'hex');
+/** @const */ var blob_enc_key = e.blob_enc_key = Buffer.from('4d3032636e5135314a69393776775434', 'hex');
 /** @const */ var pattern = e.hash_pattern = "0001110111101110001111010101111011010001001110011000110001000110";
 /** @const */ var secret = e.secret = "iEk21fuwZApXlz93750dmW22pw389dPwOk";
 /** @const */ var static_token = e.static_token = "m198sOkJEn37DjqZ32lpRu76xmw288xSQ9";
